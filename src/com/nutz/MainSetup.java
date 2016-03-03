@@ -33,7 +33,7 @@ public class MainSetup implements Setup
 			User user = new User();
 			user.setUsername("admin");
 			user.setPassword("123456");
-			user.setCreatTime(new Date());
+			user.setCreateTime(new Date());
 			user.setUpdateTime(new Date());
 			dao.insert(user);
 		}

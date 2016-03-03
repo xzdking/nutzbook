@@ -29,10 +29,8 @@ import com.nutz.bean.User;
 @Fail("http:500")
 @Filters(@By(type = CheckSession.class, args =
 { "me", "/" }))
-public class UserModule
+public class UserModule extends BaseModule
 {
-	@Inject
-	protected Dao dao;
 
 	@At
 	public Object login(@Param("username") String username, @Param("password") String password, HttpSession httpSession)
@@ -125,7 +123,6 @@ public class UserModule
 			return nutMap.setv("ok", false).setv("msg", msg);
 		}
 
-		user.setCreatTime(new Date());
 		user.setUpdateTime(new Date());
 		dao.insert(user);
 		return nutMap.setv("ok", true).setv("msg", msg);
@@ -141,7 +138,6 @@ public class UserModule
 			return nutMap.setv("ok", false).setv("msg", msg);
 		}
 		user.setUsername(null);
-		user.setCreatTime(null);
 		user.setUpdateTime(new Date());
 		dao.updateIgnoreNull(user);
 

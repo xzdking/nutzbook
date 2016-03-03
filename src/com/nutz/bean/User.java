@@ -15,7 +15,7 @@ import org.nutz.dao.entity.annotation.Table;
  * @version 1.0
  */
 @Table("t_user")
-public class User
+public class User extends BasePojo
 {
 	@Id
 	private int id;
@@ -29,12 +29,6 @@ public class User
 
 	@Column
 	private String salt = null;
-
-	@Column("ct")
-	private Date creatTime = null;
-
-	@Column("ut")
-	private Date updateTime = null;
 
 	public int getId()
 	{
@@ -76,31 +70,10 @@ public class User
 		this.salt = salt;
 	}
 
-	public Date getCreatTime()
-	{
-		return creatTime;
-	}
-
-	public void setCreatTime(Date creatTime)
-	{
-		this.creatTime = creatTime;
-	}
-
-	public Date getUpdateTime()
-	{
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime)
-	{
-		this.updateTime = updateTime;
-	}
-
 	@Override
 	public String toString()
 	{
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", salt=" + salt
-				+ ", creatTime=" + creatTime + ", updateTime=" + updateTime + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", salt=" + salt + "]";
 	}
 
 }
