@@ -171,7 +171,7 @@ public class UserModule
 	}
 
 	@At("/")
-	@Ok("jsp:jsp.user.list")
+	@Ok("jsp:index")
 	public void index() // 真实路径是 /WEB-INF/jsp/user/list.jsp
 	{
 	}
